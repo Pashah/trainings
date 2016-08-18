@@ -10,3 +10,5 @@ NodeJS, Express and Angular app for saving your trainings
 
 18.8
 2h Refactored users route. DRY now. Use of promises
+
+2h Trainings route and database table for it. Added integration tests
