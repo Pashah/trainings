@@ -20,7 +20,7 @@ router.get('', function(req, res, next) {
 
 router.get('/:userId', function(req, res, next) {
   var id = req.params.userId;
-  db.query("SELECT id, name FROM users WHERE id = $1", [id])
+  db.one("SELECT id, name FROM users WHERE id = $1", [id])
     .then(function (data) {
       return res.json(data);
     });
@@ -31,7 +31,7 @@ router.post('', function(req, res, next) {
   db.none(
     "INSERT INTO users(name) values($1)", [data.name]
   );
-  res.send('User created with name: ' + data.name);
+  return res.json({name: data.name});
 });
 
 module.exports = router;
