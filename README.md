@@ -13,3 +13,6 @@ NodeJS, Express and Angular app for saving your trainings
 
 18.8
 2h Trainings route and database table for it. Added integration tests
+
+21.8
+3h Added angular skeleton and added first pages
