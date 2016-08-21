@@ -3,8 +3,11 @@ var router = express.Router();
 var path = require('path');
 var Promise = require('bluebird');
 var pgp = require('pg-promise')();
+var cors = require('cors');
 var connectionString = require(path.join(__dirname, '../', 'config.js'));
 var db = pgp(connectionString);
+
+router.use(cors());
 
 var handleError = function(err) {
   console.log(err);
@@ -28,6 +31,7 @@ router.get('/:userId', function(req, res, next) {
 
 router.post('', function(req, res, next) {
   var data = {name: req.body.name};
+  console.log(data);
   db.none(
     "INSERT INTO users(name) values($1)", [data.name]
   );
