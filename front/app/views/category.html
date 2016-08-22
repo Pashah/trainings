@@ -16,3 +16,30 @@
   </form>
   <pre>category = {{category | json}}</pre>
 </div>
+
+<div class="categories">
+  <div class="jumbotron">
+    <h2>Existing categories</h2>
+  </div>
+  <div ng-controller="CategoryCtrlGrid">
+    <table st-table="categoryCollection" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Created by</th>
+          <th>Created</th>
+          <th>Modified</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in categories">
+          <td>{{row.name}}</td>
+          <td>{{row.description}}</td>
+          <td>{{row.created_by}}</td>
+          <td>{{row.created}}</td>
+          <td>{{row.modified}}</td>
+        </tr>
+      </tbody>
+  </div>
+</div>

@@ -10,8 +10,10 @@ var db = pgp(connectionString);
 router.use(cors());
 
 router.get('', function(req, res, next) {
+  console.log("got request");
   db.query("SELECT id, name, description, created_by, created, modified FROM categories")
     .then (function(data) {
+      console.log("categories: " + data);
       return res.json(data);
     })
     .catch(function (error) {

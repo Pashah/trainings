@@ -8,6 +8,11 @@
  * Controller of the cfFrontApp
  */
 angular.module('cfFrontApp')
+  .controller('CategoryCtrlGrid', function($scope, $http) {
+    var categories = $http.get("http://localhost:8080/categories").success(function(data, status) {
+      $scope.categories = data;
+    });
+  })
   .controller('CategoryCtrl', function ($scope, $http) {
     $scope.submit = function() {
       var category = $scope.category;
