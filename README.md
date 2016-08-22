@@ -19,3 +19,7 @@ NodeJS, Express and Angular app for saving your trainings
 
 22.8
 9h Started authentication and looking at passport, stylings to pages and forms, working header. Added new pages: categories, moves also linked there to trainings and made viewing existing possible. Testing different kinds of layouts with forms and bootstrap.
+
+0,5h Refactored frontend and backend to comply better with javascript best practices
+
+1h Started looking into Digital Ocean and deployment there
