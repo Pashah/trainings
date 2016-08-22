@@ -21,7 +21,7 @@ router.get('', function(req, res, next) {
 });
 
 router.post('', function(req, res, next) {
-  var data = {name: req.body.name, userId: req.body.userId, description: req.body.description};
+  var data = {name: req.body.name, userId: req.body.created_by, description: req.body.description};
   db.none("INSERT INTO categories(name, description, created_by) values($1, $2, $3)", [data.name, data.description, data.userId])
     .then(function () {
       return res.json(data);
