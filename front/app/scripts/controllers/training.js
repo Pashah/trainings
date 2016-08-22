@@ -8,6 +8,11 @@
  * Controller of the cfFrontApp
  */
 angular.module('cfFrontApp')
+  .controller('TrainingCtrlGrid', function($scope, $http) {
+    var categories = $http.get("http://localhost:8080/trainings").success(function(data, status) {
+      $scope.trainings = data;
+    });
+  })
   .controller('TrainingCtrl', function ($scope, $http) {
     $scope.submit = function() {
       var training = $scope.training;

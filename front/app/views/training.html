@@ -13,3 +13,21 @@
   </form>
   <pre>training = {{training | json}}</pre>
 </div>
+<div class="jumbotron">
+  <h2>Existing categories</h2>
+</div>
+<div ng-controller="TrainingCtrlGrid">
+  <table st-table="trainingCollection" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in trainings">
+        <td>{{row.name}}</td>
+        <td>{{row.created}}</td>
+      </tr>
+    </tbody>
+</div>
