@@ -1,14 +1,20 @@
-<div class="content">
-  <h1>Add a new user</h2>
+<div class="jumbotron">
+  <h2>Sign up</h2>
 </div>
 
+<div class="container">
 <div ng-controller="UserCtrl">
   <form novalidate class="simple-form">
-    <label for="name">Name:</label>
-    <input type="text" id="username" ng-model="user.name" required /><br />
-    <label for="password">Password:</label>
-    <input type="password" id="password" ng-model="user.password" required /> <br />
-    <input type="submit" ng-click="submit()" value="Save" />
+    <div class="form-group">
+      <label for="username">Name</label>
+      <input type="text" class="form-control" placeholder="username" id="username" ng-model="user.name" required /><br />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" placeholder="password" id="password" ng-model="user.password" required /> <br />
+    </div>
+    <input type="submit" ng-click="submit()" value="Create account" />
   </form>
   <pre>user = {{user | json}}</pre>
+</div>
 </div>
