@@ -17,8 +17,12 @@ angular.module('cfFrontApp')
     var categories = $http.get("http://localhost:8080/categories").success(function(data, status) {
       $scope.categories = data;
     });
+    var moves = $http.get("http://localhost:8080/moves").success(function(data, status) {
+      $scope.moves = data;
+    });
     $scope.submit = function() {
       var training = $scope.training;
+      training.created_by = 1;
       console.log("Created by user id: " + training.created_by);
       $http.post("http://localhost:8080/trainings", training).success(function(training, status) {
         console.log("Added training with name: " + training.name);

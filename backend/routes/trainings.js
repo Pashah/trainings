@@ -10,7 +10,7 @@ var db = pgp(connectionString);
 router.use(cors());
 
 router.get('', function(req, res, next) {
-  db.query("SELECT id, name, created_by, created, modified FROM trainings")
+  db.query("SELECT id, name, category, created_by, created, modified FROM trainings")
     .then (function(data) {
       return res.json(data);
     })
@@ -33,8 +33,8 @@ router.get('/:trainingId', function(req, res, next) {
 });
 
 router.post('', function(req, res, next) {
-  var data = {name: req.body.name, userId: req.body.userId};
-  db.none("INSERT INTO trainings(name, created_by) values($1, $2)", [data.name, data.userId])
+  var data = {name: req.body.name, userId: req.body.created_by, categoryId: req.body.category};
+  db.none("INSERT INTO trainings(name, created_by, category) values($1, $2, $3)", [data.name, data.userId, data.categoryId])
     .then(function () {
       return res.json(data);
     })

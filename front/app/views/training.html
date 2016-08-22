@@ -15,8 +15,10 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" placeholder="name of the training" id="name" ng-model="training.categoryId" required /><br />
+      <label for="moves">Moves</label>
+      <select name="moves" ng-model="training.moves" multiple>
+        <option ng-repeat="move in moves" value="{{move.id}}">{{move.name}}</option>
+      </select>
     </div>
     <input type="hidden" name="created_by" ng-model="training.created_by" value="1" />
     <input type="submit" ng-click="submit()" value="Save" />
@@ -31,12 +33,14 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>Category</th>
         <th>Time</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="row in trainings">
         <td>{{row.name}}</td>
+        <td>{{row.category}}</td>
         <td>{{row.created}}</td>
       </tr>
     </tbody>
