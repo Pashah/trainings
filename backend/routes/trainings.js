@@ -22,7 +22,7 @@ router.get('', function(req, res, next) {
 
 router.get('/:trainingId', function(req, res, next) {
   var trainingId = req.params.trainingId;
-  db.one("SELECT id, name, created_by, created, modified FROM trainings WHERE id = $1", [trainingId])
+  db.one("SELECT id, name, created_by as createdBy, created, modified FROM trainings WHERE id = $1", [trainingId])
     .then(function (data) {
       return res.json(data);
     })
@@ -33,7 +33,7 @@ router.get('/:trainingId', function(req, res, next) {
 });
 
 router.post('', function(req, res, next) {
-  var data = {name: req.body.name, userId: req.body.created_by, categoryId: req.body.category};
+  var data = {name: req.body.name, userId: req.body.createdBy, categoryId: req.body.category};
   db.none("INSERT INTO trainings(name, created_by, category) values($1, $2, $3)", [data.name, data.userId, data.categoryId])
     .then(function () {
       return res.json(data);

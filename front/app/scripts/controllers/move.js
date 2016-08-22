@@ -16,7 +16,7 @@
    .controller('MoveCtrl', function ($scope, $http) {
      $scope.submit = function() {
        var move = $scope.move;
-       move.created_by = 1;
+       move.createdBy = 1;
        console.log(move);
        $http.post('http://localhost:8080/moves', move).success(function(move, status) {
          console.log('Added move with name: ' + move.name);

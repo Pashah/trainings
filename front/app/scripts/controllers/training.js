@@ -22,8 +22,8 @@ angular.module('cfFrontApp')
     });
     $scope.submit = function() {
       var training = $scope.training;
-      training.created_by = 1;
-      console.log('Created by user id: ' + training.created_by);
+      training.createdBy = 1;
+      console.log('Created by user id: ' + training.createdBy);
       $http.post('http://localhost:8080/trainings', training).success(function(training) {
         console.log('Added training with name: ' + training.name);
       });
