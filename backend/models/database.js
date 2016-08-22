@@ -11,4 +11,9 @@ var query = client.query('CREATE TABLE trainings(id SERIAL PRIMARY KEY, name VAR
 query.on('end', function() { client.end(); });
 
 client.connect();
-var query = client.query('CREATE TABLE public.categories(id SERIAL PRIMARY KEY, name character(80) NOT NULL, description character(512), created_by integer NOT NULL, created timestamp without time zone DEFAULT current_timestamp, modified timestamp without time zone DEFAULT current_timestamp');
+var query = client.query('CREATE TABLE categories(id SERIAL PRIMARY KEY, name character(80) NOT NULL, description character(512), created_by integer NOT NULL, created timestamp without time zone DEFAULT current_timestamp, modified timestamp without time zone DEFAULT current_timestamp)');
+query.on('end', function() { client.end();});
+
+client.connect();
+var query = client.query('CREATE TABLE moves(id SERIAL PRIMARY KEY, name character(80) NOT NULL, description character(512), created_by integer NOT NULL, created timestamp without time zone DEFAULT current_timestamp, modified timestamp without time zone DEFAULT current_timestamp)');
+query.on('end', function() { client.end();});

@@ -55,6 +55,11 @@ angular
         controller: 'CategoryCtrl',
         controllerAs: 'category'
       })
+      .when('/move', {
+        templateUrl: 'views/move.html',
+        controller: 'MoveCtrl',
+        controllerAs: 'move'
+      })
       .otherwise({
         redirectTo: '/'
       });
