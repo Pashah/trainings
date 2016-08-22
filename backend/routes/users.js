@@ -6,6 +6,7 @@ var pgp = require('pg-promise')();
 var cors = require('cors');
 var connectionString = require(path.join(__dirname, '../', 'config.js'));
 var db = pgp(connectionString);
+var passwordHash = require('password-hash');
 
 router.use(cors());
 
@@ -30,10 +31,11 @@ router.get('/:userId', function(req, res, next) {
 });
 
 router.post('', function(req, res, next) {
-  var data = {name: req.body.name};
+  var hashedPassword = passwordHash.generate(req.body.password);
+  var data = {name: req.body.name, password: hashedPassword};
   console.log(data);
   db.none(
-    "INSERT INTO users(name) values($1)", [data.name]
+    "INSERT INTO users(name, password) values($1, $2)", [data.name, data.password]
   );
   return res.json({name: data.name});
 });

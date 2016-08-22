@@ -34,6 +34,21 @@ angular
         controller: 'UserCtrl',
         controllerAs: 'user'
       })
+      .when('/training', {
+        templateUrl: 'views/training.html',
+        controller: 'TrainingCtrl',
+        controllerAs: 'training'
+      })
+      .when('/training', {
+        templateUrl: 'views/training.html',
+        controller: 'TrainingCtrl',
+        controllerAs: 'training'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
       .otherwise({
         redirectTo: '/'
       });

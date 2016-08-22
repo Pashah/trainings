@@ -3,9 +3,11 @@ var router = express.Router();
 var path = require('path');
 var Promise = require('bluebird');
 var pgp = require('pg-promise')();
+var cors = require('cors');
 var connectionString = require(path.join(__dirname, '../', 'config.js'));
 var db = pgp(connectionString);
 
+router.use(cors());
 
 router.get('', function(req, res, next) {
   db.query("SELECT id, name, created_by, created, modified FROM trainings")
