@@ -16,3 +16,6 @@ NodeJS, Express and Angular app for saving your trainings
 
 21.8
 3h Added angular skeleton and added first pages
+
+22.8
+9h Started authentication and looking at passport, stylings to pages and forms, working header. Added new pages: categories, moves also linked there to trainings and made viewing existing possible. Testing different kinds of layouts with forms and bootstrap.
