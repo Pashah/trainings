@@ -14,4 +14,9 @@ angular.module('cfFrontApp')
       'AngularJS',
       'Karma'
     ];
+  })
+  .controller('NavCtrl', function($scope, $location) {
+    $scope.isActive = function (viewLocation) {
+      return viewLocation === $location.path();
+    };
   });
