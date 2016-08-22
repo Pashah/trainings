@@ -11,8 +11,8 @@ angular.module('cfFrontApp')
   .controller('LoginCtrl', function ($scope, $http) {
     $scope.submit = function() {
       var user = $scope.user;
-      $http.post("http://localhost:8080/login", user).success(function(user, status) {
-        console.log("Logged user in with name: " + user.name);
+      $http.post('http://localhost:8080/login', user).success(function(user) {
+        console.log('Logged user in with name: ' + user.name);
       });
     };
   });

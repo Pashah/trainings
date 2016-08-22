@@ -9,24 +9,23 @@
  */
 angular.module('cfFrontApp')
   .controller('TrainingCtrlGrid', function($scope, $http) {
-    var categories = $http.get("http://localhost:8080/trainings").success(function(data, status) {
+    $http.get('http://localhost:8080/trainings').success(function(data) {
       $scope.trainings = data;
     });
   })
   .controller('TrainingCtrl', function ($scope, $http) {
-    var categories = $http.get("http://localhost:8080/categories").success(function(data, status) {
+    $http.get('http://localhost:8080/categories').success(function(data) {
       $scope.categories = data;
     });
-    var moves = $http.get("http://localhost:8080/moves").success(function(data, status) {
+    $http.get('http://localhost:8080/moves').success(function(data) {
       $scope.moves = data;
     });
     $scope.submit = function() {
       var training = $scope.training;
       training.created_by = 1;
-      console.log("Created by user id: " + training.created_by);
-      $http.post("http://localhost:8080/trainings", training).success(function(training, status) {
-        console.log("Added training with name: " + training.name);
-        console.log("Got status: " + status);
+      console.log('Created by user id: ' + training.created_by);
+      $http.post('http://localhost:8080/trainings', training).success(function(training) {
+        console.log('Added training with name: ' + training.name);
       });
     };
   });
