@@ -23,3 +23,6 @@ NodeJS, Express and Angular app for saving your trainings
 0,5h Refactored frontend and backend to comply better with javascript best practices
 
 1h Started looking into Digital Ocean and deployment there
+
+23.8
+1,5h Digital Ocean deployment
