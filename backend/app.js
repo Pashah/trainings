@@ -30,6 +30,7 @@ app.use('/users', users);
 app.use('/trainings', trainings);
 app.use('/categories', categories);
 app.use('/moves', moves);
+app.use('/shorturls', shorturls);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
