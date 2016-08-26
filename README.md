@@ -1,5 +1,5 @@
 # trainings
-NodeJS, Express and Angular app for saving your trainings
+NodeJS, Express and Angular app for saving your trainings. This repository contains both frontend and backend.
 
 # Hours
 16.8
