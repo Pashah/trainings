@@ -12,6 +12,12 @@ angular.module('cfFrontApp')
     $http.get('http://localhost:8080/trainings').success(function(data) {
       $scope.trainings = data;
     });
+    $scope.addShortcut = function(id) {
+      console.log(id);
+      $http.post('http://localhost:8080/shorturls', {trainingId: id}).success(function(trainingId) {
+          console.log('Generated new shortUrl: ' + trainingId);
+      });
+    };
   })
   .controller('TrainingCtrl', function ($scope, $http) {
     $http.get('http://localhost:8080/categories').success(function(data) {

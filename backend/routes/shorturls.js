@@ -11,10 +11,13 @@ router.use(cors());
 
 router.post('', function(req, res, next) {
   var shortUrl = ('shortUrl' in req.body) ? req.body.shortUrl : Math.random().toString(36).slice(2).substring(0, 6);
-  var data = {originalUrl: req.body.originalUrl, shortUrl: shortUrl};
-  db.none("INSERT INTO shortulrs(originalUrl, shortUrl) values($1, $2)", [data.originalUrl, data.shortUrl])
+  console.log(shortUrl);
+  var host = 'http://localhost:8080/';
+  var originalUrl = host + 'trainings/' + req.body.trainingId;
+  shortUrl = host + 'trainings/' + shortUrl;
+  db.none("INSERT INTO shorturls(originalUrl, shortUrl, trainingId) values($1, $2, $3)", [originalUrl, shortUrl, req.body.trainingId])
     .then(function () {
-      return res.json(data);
+      return res.json(shortUrl);
     })
     .catch(function (error) {
       console.log(error);

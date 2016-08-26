@@ -19,5 +19,5 @@ var query = client.query('CREATE TABLE moves(id SERIAL PRIMARY KEY, name charact
 query.on('end', function() { client.end();});
 
 client.connect();
-var query = client.query('CREATE TABLE shorturls(id SERIAL PRIMARY KEY, originalUrl character(80) NOT NULL, shortUrl character(80))');
+var query = client.query('CREATE TABLE shorturls(id SERIAL PRIMARY KEY, originalUrl character(80) NOT NULL, shortUrl character(80), trainingId integer)');
 query.on('end', function() { client.end();});

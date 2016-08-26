@@ -10,7 +10,7 @@ var db = pgp(connectionString);
 router.use(cors());
 
 router.get('', function(req, res, next) {
-  db.query("SELECT id, name, category, created_by, created, modified FROM trainings")
+  db.query("SELECT t.id, t.name, t.category, t.created_by, t.created, t.modified, s.shortUrl FROM trainings t LEFT JOIN shorturls s ON t.id = s.trainingId")
     .then (function(data) {
       return res.json(data);
     })

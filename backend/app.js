@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var trainings = require('./routes/trainings');
 var categories = require('./routes/categories');
 var moves = require('./routes/moves');
+var shorturls = require('./routes/shorturls')
 
 var app = express();
 

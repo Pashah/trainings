@@ -34,14 +34,15 @@
       <tr>
         <th>Name</th>
         <th>Category</th>
-        <th>Time</th>
+        <th>ShortUrl</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="row in trainings">
         <td>{{row.name}}</td>
         <td>{{row.category}}</td>
-        <td>{{row.created}}</td>
+        <td ng-if="row.shorturl">{{row.shorturl}}</td>
+        <td ng-if="!row.shorturl"><button ng-click="addShortcut(row.id)">Add shortcut url</button></td>
       </tr>
     </tbody>
 </div>
