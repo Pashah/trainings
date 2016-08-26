@@ -26,3 +26,9 @@ NodeJS, Express and Angular app for saving your trainings
 
 23.8
 1,5h Digital Ocean deployment
+
+25.8
+1h Heroku deployment, as I couldn't get the Digital Ocean frontend working properly..
+
+26.8
+4h Shortcut urls to trainings
